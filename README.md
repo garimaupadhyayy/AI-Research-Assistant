@@ -1,7 +1,8 @@
-<img width="1918" height="957" alt="image" src="https://github.com/user-attachments/assets/3a6f71b0-a350-454e-ba7c-2abc62920b2b" /><img width="1918" height="957" alt="image" src="https://github.com/user-attachments/assets/c0f333c5-4bc4-4e69-913f-a561dbe9aebb" />
+<img width="1918" height="911" alt="image" src="https://github.com/user-attachments/assets/cc7d48ae-c524-420b-8e4a-fd339fb54640" />
+
 # 🤖 AI Research Assistant
 
-An AI-powered research assistant that searches the web, synthesizes information using Google's Gemini AI, and generates structured research reports with key insights and verified sources.
+AI Research Assistant is a full-stack web application that automates the research process by combining real-time web search with Generative AI. Instead of manually browsing multiple websites and reading lengthy articles, users can enter any research topic and receive a structured, AI-generated research report within seconds. The application searches the web using Tavily Search API and Serper API, retrieves relevant information from trusted sources, and then leverages Google Gemini 1.5 Flash to analyze, synthesize, and summarize the collected content. The generated report includes a comprehensive summary, key insights, and direct links to the original reference sources, enabling users to verify the information easily. To provide a seamless experience, the application also stores previous research sessions in a cloud-hosted TiDB MySQL database, allowing users to revisit earlier research without performing the search again. The backend is deployed on Render, while the frontend is hosted on Vercel, making the application publicly accessible.
 
 🌐 **Live Demo:** https://ai-research-assistant-livid-zeta.vercel.app
 
