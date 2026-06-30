@@ -1,0 +1,18 @@
+CREATE DATABASE IF NOT EXISTS ai_research_assistant;
+USE ai_research_assistant;
+
+CREATE TABLE IF NOT EXISTS research_sessions (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    topic VARCHAR(255) NOT NULL,
+    summary TEXT NOT NULL,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+CREATE TABLE IF NOT EXISTS sources (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    session_id INT NOT NULL,
+    title VARCHAR(255) DEFAULT NULL,
+    url TEXT NOT NULL,
+    snippet TEXT,
+    FOREIGN KEY (session_id) REFERENCES research_sessions(id) ON DELETE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
