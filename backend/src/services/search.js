@@ -5,9 +5,27 @@ dotenv.config();
 
 function cleanSnippet(text = "") {
   const cleaned = text
+    // Remove markdown headings
+    .replace(/^#+\s*/gm, "")
+
+    // Remove bold/italic markdown
+    .replace(/\*\*/g, "")
+    .replace(/__/g, "")
+    .replace(/\*/g, "")
+
+    // Remove citations
     .replace(/\[\[.*?\]\]/g, "")
+
+    // Remove URLs
     .replace(/https?:\/\/\S+/g, "")
+
+    // Remove markdown links [text](url)
+    .replace(/\[([^\]]+)\]\([^)]+\)/g, "$1")
+
+    // Remove extra brackets
     .replace(/\[[^\]]*\]/g, "")
+
+    // Normalize whitespace
     .replace(/\s+/g, " ")
     .trim();
 
