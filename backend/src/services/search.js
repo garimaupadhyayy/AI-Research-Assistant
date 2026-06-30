@@ -3,6 +3,18 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
+function cleanSnippet(text = "") {
+  const cleaned = text
+    .replace(/\[\[.*?\]\]/g, "")
+    .replace(/https?:\/\/\S+/g, "")
+    .replace(/\[[^\]]*\]/g, "")
+    .replace(/\s+/g, " ")
+    .trim();
+
+  return cleaned.length > 300
+    ? cleaned.substring(0, 300) + "..."
+    : cleaned;
+}
 export async function searchWeb(query) {
   const tavilyKey = process.env.TAVILY_API_KEY;
   const serperKey = process.env.SERPER_API_KEY;
@@ -20,7 +32,7 @@ export async function searchWeb(query) {
         return response.data.results.map(r => ({
           title: r.title || 'Untitled Source',
           url: r.url || '#',
-          snippet: r.content || ''
+          snippet: cleanSnippet(r.content || '')
         }));
       }
     } catch (error) {
@@ -44,7 +56,7 @@ export async function searchWeb(query) {
         return response.data.organic.map(r => ({
           title: r.title || 'Untitled Source',
           url: r.link || '#',
-          snippet: r.snippet || ''
+         snippet: cleanSnippet(r.snippet || '')
         }));
       }
     } catch (error) {
