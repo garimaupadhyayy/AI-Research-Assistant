@@ -69,30 +69,6 @@ AI-Research-Assistant
 └── README.md
 ```
 
-## ⚙️ Environment Variables
-
-### Backend (.env)
-
-```env
-NODE_ENV=production
-
-DB_HOST=your_tidb_host
-DB_PORT=4000
-DB_USER=your_tidb_username
-DB_PASSWORD=your_tidb_password
-DB_NAME=your_database_name
-
-GEMINI_API_KEY=your_gemini_api_key
-TAVILY_API_KEY=your_tavily_api_key
-SERPER_API_KEY=your_serper_api_key
-```
-
-### Frontend (.env)
-
-```env
-VITE_API_URL=https://your-render-backend.onrender.com/api
-```
-
 ## 🚀 Installation
 
 Clone the repository
